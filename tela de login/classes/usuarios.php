@@ -13,7 +13,7 @@ class Usuarios
                 $usuario,
                 $senha
             );
-			$this->msgErro = "";
+            $this->msgErro = "";
         } catch (PDOException $e) {
             $this->msgErro = $e->getMessage();
         }
@@ -22,19 +22,16 @@ class Usuarios
     {
         $sql = $this->pdo->prepare("SELECT id FROM usuarios WHERE
         email = :e");
-        $sql-> bindValue(":e",$email);
+        $sql->bindValue(":e", $email);
         $sql->execute();
-        if($sql->rowCount() > 0)
-        {
+        if ($sql->rowCount() > 0) {
             return false;
-        }
-        else
-        {
+        } else {
             $sql = $this->pdo->prepare("INSERT INTO usuarios(login, email, password) 
             VALUES (:n, :e, :s)");
-            $sql->bindValue(":n",$nome);
-            $sql->bindValue(":e",$email);
-            $sql->bindValue(":s",md5($senha));
+            $sql->bindValue(":n", $nome);
+            $sql->bindValue(":e", $email);
+            $sql->bindValue(":s", md5($senha));
             $sql->execute();
             return true;
         }
@@ -42,20 +39,17 @@ class Usuarios
     public function logar($email, $senha)
     {
         $sql = $this->pdo->prepare("SELECT id FROM usuarios WHERE
-            email = :e AND senha = :s");
-        $sql->bidnValue(":e",$email);
-        $sql->bindValue(":s",$senha);
+            email = :e AND password = :s");
+        $sql->bindValue(":e", $email);
+        $sql->bindValue(":s", md5($senha));
         $sql->execute();
-        if($sql->rowCout() > 0)
-        {
+        if ($sql->rowCount() > 0) {
             $dado = $sql->fetch();
             session_start();
             $_SESSION['id'] = $dado['id'];
             return true;
-        }
-        else
-        {
+        } else {
             return false;
         }
-     }
+    }
 }
