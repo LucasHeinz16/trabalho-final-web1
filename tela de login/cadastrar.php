@@ -17,15 +17,15 @@
         <h1>Cadastre-se</h1>
         <form method="POST">
             <input type="text" name="nome" placeholder="Nome Completo" maxlength="30">
-            <input type="email" nome="email" placeholder="Usuario"maxlength="30">
-            <input type="password"nome="senha" placeholder="Senha" maxlength="40">
-            <input type="password" nome="confirmarsenha" placeholder="Confirmar Senha" maxlength="15">
+            <input type="email" name="email" placeholder="Usuario"maxlength="30">
+            <input type="password"name="senha" placeholder="Senha" maxlength="40">
+            <input type="password" name="confirmarsenha" placeholder="Confirmar Senha" maxlength="15">
             <input type="submit" value="CADASTRAR">
             <a href="cadastrar.php">Ainda nao é inscrito?<strong>Cadastre-se </strong></a>
         </form>
     </div>
     <?php
-    var_dump($_POST);
+    
     if(isset($_POST['nome']))
     {
         $nome = addslashes($_POST['nome']);

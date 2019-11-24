@@ -10,8 +10,8 @@
     <div id="corpo-form">
         <h1>Entrar</h1>
     <form method="POST">
-        <input type="email" nome="email" placeholder="Usuario">
-        <input type="password" nome="senha" placeholder="Senha">
+        <input type="email" name="email" placeholder="Usuario">
+        <input type="password" name="senha" placeholder="Senha">
         <input type="submit" value="ACESSAR">
         <a href="cadastrar.php">Ainda nao é inscrito?<strong>Cadastre-se </strong></a>
     </form>
