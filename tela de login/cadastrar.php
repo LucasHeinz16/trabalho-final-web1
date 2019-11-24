@@ -25,14 +25,14 @@
         </form>
     </div>
     <?php
-    
+    // var_dump($_POST);
     if(isset($_POST['nome']))
     {
         $nome = addslashes($_POST['nome']);
         $email =addslashes($_POST['email']);
         $senha =  addslashes($_POST['senha']);
-        $confirmarSenha =addslashes($_POST['confirmarsenha']);
-        if(!empty($nome) && !empty($email) && !empty($senha) && !empty($confirmarseha))
+        $confirmarsenha =addslashes($_POST['confirmarsenha']);
+        if(!empty($nome) && !empty($email) && !empty($senha) && !empty($confirmarsenha))
         {
             $u->conectar("login","localhost","root","");
             if($u->msgErro == "")
