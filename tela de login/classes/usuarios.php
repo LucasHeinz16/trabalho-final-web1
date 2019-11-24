@@ -1,6 +1,6 @@
 <?php
 
-class Usuaio
+class Usuario
 {
     private $pdo;
     public $msgErro;
@@ -20,7 +20,7 @@ class Usuaio
     }
     public function cadastrar($nome, $email, $senha)
     {
-        $sql = $this->pdo->prepare("SELECT id_usuario FROM usuarios WHERE
+        $sql = $this->pdo->prepare("SELECT id FROM usuarios WHERE
         email = :e");
         $sql-> bindValue(":e",$email);
         $sql->execute();
@@ -30,7 +30,7 @@ class Usuaio
         }
         else
         {
-            $sql = $this->pdo->prepare("INSERT INTO usuarios(nome, email, senha) 
+            $sql = $this->pdo->prepare("INSERT INTO usuarios(login, email, password) 
             VALUES (:n, :e, :s)");
             $sql->bindValue(":n",$nome);
             $sql->bindValue(":e",$email);
