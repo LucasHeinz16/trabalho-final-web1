@@ -1,6 +1,6 @@
 <?php
     require_once 'classes/usuarios.php';
-    $u = new Usuaio;
+    $u = new Usuarios;
 
 ?>
 
