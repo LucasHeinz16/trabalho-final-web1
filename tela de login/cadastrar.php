@@ -1,6 +1,6 @@
 <?php
-    require_once 'classes/usuarios.php';
-    $u = new Usuarios;
+require_once 'classes/usuarios.php';
+$u = new Usuarios;
 
 ?>
 
@@ -17,48 +17,49 @@
         <h1>Cadastre-se</h1>
         <form method="POST">
             <input type="text" name="nome" placeholder="Nome Completo" maxlength="30">
-            <input type="email" name="email" placeholder="Usuario"maxlength="30">
-            <input type="password"name="senha" placeholder="Senha" maxlength="40">
+            <input type="email" name="email" placeholder="Usuario" maxlength="30">
+            <input type="password" name="senha" placeholder="Senha" maxlength="40">
             <input type="password" name="confirmarsenha" placeholder="Confirmar Senha" maxlength="15">
             <input type="submit" value="CADASTRAR">
-            <a href="cadastrar.php">Ainda nao é inscrito?<strong>Cadastre-se </strong></a>
+         
+            
         </form>
     </div>
     <?php
     // var_dump($_POST);
-    if(isset($_POST['nome']))
-    {
+    if (isset($_POST['nome'])) {
         $nome = addslashes($_POST['nome']);
-        $email =addslashes($_POST['email']);
+        $email = addslashes($_POST['email']);
         $senha =  addslashes($_POST['senha']);
-        $confirmarsenha =addslashes($_POST['confirmarsenha']);
-        if(!empty($nome) && !empty($email) && !empty($senha) && !empty($confirmarsenha))
-        {
-            $u->conectar("lucas","localhost","root","");
-            if($u->msgErro == "")
-            {   if($senha == $confirmarsenha)
-                {
-                    if($u->cadastrar($nome,$email,$senha))
-                    {
-                        echo "Cadastrado com sucesso!";
+        $confirmarsenha = addslashes($_POST['confirmarsenha']);
+        if (!empty($nome) && !empty($email) && !empty($senha) && !empty($confirmarsenha)) {
+            $u->conectar("lucas", "localhost", "root", "");
+            if ($u->msgErro == "") {
+                if ($senha == $confirmarsenha) {
+                    if ($u->cadastrar($nome, $email, $senha)) {
+                        ?>
+                        <div id="msg-sucesso">Cadastrado com Sucesso!</div>
+                    <?php
+                                    } else {
+                                        ?>
+                        <div class="msg-erro">Email ja cadastrado!</div>
+                    <?php
+                                    }
+                                } else {
+                                    ?>
+                    <div class="msg-erro">Senhas não correspondem</div>
+                <?php
+                            }
+                        } else {
+                            ?>
+                <div class="msg-erro"><?php echo "Erro: " . $u->msgErro; ?></div>
+            <?php
+
                     }
-                    else
-                    {
-                        echo "email ja cadastrado";
-                    }
-                }
-                else
-                {
-                    echo "Senhas nao sao iguais";
-                }
-            }
-            else
-            {
-                echo "Erro: ".$u->msgErro;
-            }
-        }else
-        {
-            echo "Preecha todos os campos";
+                } else {
+                    ?>
+            <div class="msg-erro">Preencha todos os campos!</div>
+    <?php
         }
     }
 
