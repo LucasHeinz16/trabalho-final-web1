@@ -3,25 +3,24 @@
 class Usuaio
 {
     private $pdo;
-    public $msgErro = "";
+    public $msgErro;
 
     public function conectar($nome, $host, $usuario, $senha)
     {
-        global $pdo;
         try {
-            $pdo = new PDO(
+            $this->pdo = new PDO(
                 "mysql:dbname=" . $nome . ";host=" . $host,
                 $usuario,
                 $senha
             );
+			$this->msgErro = "";
         } catch (PDOException $e) {
-            $msgErro = $e->getMessage();
+            $this->msgErro = $e->getMessage();
         }
     }
     public function cadastrar($nome, $email, $senha)
     {
-        global $pdo;
-        $sql = $pdo->prepare("SELECT id_usuario FROM usuarios WHERE
+        $sql = $this->pdo->prepare("SELECT id_usuario FROM usuarios WHERE
         email = :e");
         $sql-> bindValue(":e",$email);
         $sql->execute();
@@ -31,7 +30,7 @@ class Usuaio
         }
         else
         {
-            $sql = $pdo->prepare("INSERT INTO usuarios(nome, email, senha) 
+            $sql = $this->pdo->prepare("INSERT INTO usuarios(nome, email, senha) 
             VALUES (:n, :e, :s)");
             $sql->bindValue(":n",$nome);
             $sql->bindValue(":e",$email);
@@ -42,8 +41,7 @@ class Usuaio
     }
     public function logar($email, $senha)
     {
-        global $pdo;
-        $sql = $pdo->prepare("SELECT id_usuarios FROM usuarios WHERE
+        $sql = $this->pdo->prepare("SELECT id_usuarios FROM usuarios WHERE
             email = :e AND senha = :s");
         $sql->bidnValue(":e",$email);
         $sql->bindValue(":s",$senha);
