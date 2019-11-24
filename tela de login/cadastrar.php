@@ -34,7 +34,7 @@
         $confirmarsenha =addslashes($_POST['confirmarsenha']);
         if(!empty($nome) && !empty($email) && !empty($senha) && !empty($confirmarsenha))
         {
-            $u->conectar("login","localhost","root","");
+            $u->conectar("lucas","localhost","root","");
             if($u->msgErro == "")
             {   if($senha == $confirmarsenha)
                 {

@@ -41,7 +41,7 @@ class Usuarios
     }
     public function logar($email, $senha)
     {
-        $sql = $this->pdo->prepare("SELECT id_usuarios FROM usuarios WHERE
+        $sql = $this->pdo->prepare("SELECT id FROM usuarios WHERE
             email = :e AND senha = :s");
         $sql->bidnValue(":e",$email);
         $sql->bindValue(":s",$senha);
@@ -50,7 +50,7 @@ class Usuarios
         {
             $dado = $sql->fetch();
             session_start();
-            $_SESSION['id_usuario'] = $dado['id_usuario'];
+            $_SESSION['id'] = $dado['id'];
             return true;
         }
         else
