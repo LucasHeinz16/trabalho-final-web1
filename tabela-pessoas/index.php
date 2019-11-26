@@ -1,14 +1,47 @@
 <?php
-session_start();
+require_once 'login/usuarios.php';
+$u = new Usuarios;
+?>
 
-include 'conexao.php';
-include 'header.php';
+<html lang="pt-br">
 
-include 'menu.php';
+<head>
+    <meta charset="utf-8">
+    <title>Sistema de login</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
 
-if (!isset($_GET['pagina']))
-    include 'listagem.php';
-else
-    include $_GET['pagina'] . '.php';
+<body>
+    <div id="corpo-form">
+        <h1>Entrar</h1>
+        <form method="POST">
+            <input type="email" name="email" placeholder="Usuario">
+            <input type="password" name="senha" placeholder="Senha">
+            <input type="submit" value="ACESSAR">
+            <a href="login/cadastrar.php">Ainda não é inscrito?<strong>Cadastre-se </strong></a>
+        </form>
+    </div>
+    <?php
+    if (isset($_POST['email'])) {
+        $email = addslashes($_POST['email']);
+        $senha =  addslashes($_POST['senha']);
 
-include 'footer.php';
+        if (!empty($email) && !empty($senha)) {
+            $u->conectar("lucas", "localhost", "root", "");
+            if ($u->msgErro == "") {
+                if ($u->logar($email, $senha)) {
+                    header("location: site/includes.php");
+                } else {
+                    ?>
+                    <div class="msg-erro">Email ou senha incorretos!</div>
+    <?php
+                }
+            } else {
+                echo "Erro: " . $u->msgErro;
+            }
+        } else { }
+    }
+    ?>
+</body>
+
+</html>
