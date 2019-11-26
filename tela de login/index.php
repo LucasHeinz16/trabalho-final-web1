@@ -18,7 +18,7 @@ $u = new Usuarios;
             <input type="email" name="email" placeholder="Usuario">
             <input type="password" name="senha" placeholder="Senha">
             <input type="submit" value="ACESSAR">
-            <a href="cadastrar.php">Ainda nao é inscrito?<strong>Cadastre-se </strong></a>
+            <a href="cadastrar.php">Ainda não é inscrito?<strong>Cadastre-se </strong></a>
         </form>
     </div>
     <?php
@@ -34,7 +34,7 @@ $u = new Usuarios;
             {
                 if($u->logar($email,$senha))
                 {
-                    header("location: areaprivada.php");
+                    header("location: ../tabela-pessoas/index.php");
                 }
                 else
                 {

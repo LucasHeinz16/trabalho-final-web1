@@ -21,8 +21,6 @@ $u = new Usuarios;
             <input type="password" name="senha" placeholder="Senha" maxlength="40">
             <input type="password" name="confirmarsenha" placeholder="Confirmar Senha" maxlength="15">
             <input type="submit" value="CADASTRAR">
-         
-            
         </form>
     </div>
     <?php
@@ -40,6 +38,7 @@ $u = new Usuarios;
                         ?>
                         <div id="msg-sucesso">Cadastrado com Sucesso!</div>
                     <?php
+                                        header("location: ../tabela-pessoas/index.php");
                                     } else {
                                         ?>
                         <div class="msg-erro">Email ja cadastrado!</div>

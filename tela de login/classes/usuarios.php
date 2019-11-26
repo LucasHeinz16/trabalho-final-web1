@@ -1,9 +1,9 @@
 <?php
 
-class Usuarios
+class usuarios
 {
     private $pdo;
-    public $msgErro;
+    public $msgErro = "";
 
     public function conectar($nome, $host, $usuario, $senha)
     {
