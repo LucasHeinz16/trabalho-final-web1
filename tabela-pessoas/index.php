@@ -1,6 +1,6 @@
 <?php
 require_once 'login/usuarios.php';
-$u = new Usuarios;
+$u = new usuarios_pessoas;
 ?>
 
 <html lang="pt-br">

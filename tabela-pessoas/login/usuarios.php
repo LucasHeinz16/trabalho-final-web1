@@ -1,6 +1,6 @@
 <?php
 
-class usuarios
+class usuarios_pessoas
 {
     private $pdo;
     public $msgErro = "";
@@ -20,14 +20,14 @@ class usuarios
     }
     public function cadastrar($nome, $email, $senha)
     {
-        $sql = $this->pdo->prepare("SELECT id FROM usuarios WHERE
+        $sql = $this->pdo->prepare("SELECT id FROM usuarios_pessoas WHERE
         email = :e");
         $sql->bindValue(":e", $email);
         $sql->execute();
         if ($sql->rowCount() > 0) {
             return false;
         } else {
-            $sql = $this->pdo->prepare("INSERT INTO usuarios(login, email, password) 
+            $sql = $this->pdo->prepare("INSERT INTO usuarios_pessoas(login, email, password) 
             VALUES (:n, :e, :s)");
             $sql->bindValue(":n", $nome);
             $sql->bindValue(":e", $email);
@@ -38,7 +38,7 @@ class usuarios
     }
     public function logar($email, $senha)
     {
-        $sql = $this->pdo->prepare("SELECT id FROM usuarios WHERE
+        $sql = $this->pdo->prepare("SELECT id FROM usuarios_pessoas WHERE
             email = :e AND password = :s");
         $sql->bindValue(":e", $email);
         $sql->bindValue(":s", md5($senha));

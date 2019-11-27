@@ -1,6 +1,6 @@
 <?php
 require_once 'usuarios.php';
-$u = new Usuarios;
+$u = new usuarios_pessoas;
 
 ?>
 
