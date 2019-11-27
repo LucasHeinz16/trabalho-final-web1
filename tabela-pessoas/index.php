@@ -8,7 +8,7 @@ $u = new Usuarios;
 <head>
     <meta charset="utf-8">
     <title>Sistema de login</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="login/style.css">
 </head>
 
 <body>
