@@ -1,12 +1,7 @@
 <?php
-$username = 'root';
-$password = '';
-$banco = 'pesquisa';
+    $conn=mysqli_connect("localhost", "root", "");
+    mysqli_select_db($conn, "tb_pesquisa");
+    mysqli_select_db($conn, "tb_transporte");
+    mysqli_select_db($conn, "tb_uf");
 
-try {
-    $con = new PDO('mysql:host=mysql;dbname='.$banco, 
-    $username, $password);
-    $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch(PDOException $e) {
-    echo 'ERROR: ' . $e->getMessage();
-}
+?>
