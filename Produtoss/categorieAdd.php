@@ -17,5 +17,5 @@
 			$_POST['Descricao'], 
 			$figura]);
 	}
-	header('Location: categorie.php');
+	header('Location: categorieList.php');
 ?>

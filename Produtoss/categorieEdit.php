@@ -15,9 +15,9 @@
 		$dataStmt->execute([$_POST['IDCategoria']]);
 		$data = $dataStmt->fetch(PDO::FETCH_ASSOC);
 		echo '<form action="categorieUpdate.php" method="POST" enctype="multipart/form-data">
-			<input type="text" readonly="readonly" name="IDCategoria" value="' . $_POST['IDCategoria'] . '"/><br/>
-			<input type="text" name="NomeCategoria" value="' . $data['NomeCategoria'] . '"/><br/>
-			<input type="text" name="Descricao" value="' . $data['Descricao'] . '"/><br/>
+			 Id:<input type="text" readonly="readonly" name="IDCategoria" value="' . $_POST['IDCategoria'] . '"/><br/>
+			Categoria:<input type="text" name="NomeCategoria" value="' . $data['NomeCategoria'] . '"/><br/>
+			Descrição:<input type="text" name="Descricao" value="' . $data['Descricao'] . '"/><br/>
 			<input type="submit"/>
 		</form>';
 	}
