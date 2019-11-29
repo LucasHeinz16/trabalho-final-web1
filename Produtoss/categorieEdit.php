@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <?php
 	if(isset($_POST)){
 		try {
@@ -18,7 +19,8 @@
 			 Id:<input type="text" readonly="readonly" name="IDCategoria" value="' . $_POST['IDCategoria'] . '"/><br/>
 			Categoria:<input type="text" name="NomeCategoria" value="' . $data['NomeCategoria'] . '"/><br/>
 			Descrição:<input type="text" name="Descricao" value="' . $data['Descricao'] . '"/><br/>
-			<input type="submit"/>
+			<input type="submit" value="Editar"  class="btn btn-warning"/>
 		</form>';
 	}
+	header("CategorieList.php");
 ?>

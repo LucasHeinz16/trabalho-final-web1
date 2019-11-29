@@ -28,10 +28,11 @@ while ($data = $dataStmt->fetch(PDO::FETCH_ASSOC)) {
 		'</td><td>' . $data['Descricao'] .
 		'</td><td><img src="' . $data['Figura'] . '"/>' .
 		'</td><td><form action="categorieList.php" method="POST">' .
-		'<input type="hidden" value="' . $data['IDCategoria'] . '" name="IDCategoria">' .
-		'<input type="hidden" value="delete" name="action">' .
-		'<input type="submit" value="deletar"/></form>' .
+		'<input type="hidden" value="' . $data['IDCategoria'] . '" name="IDCategoria" >' .
+		'<input type="hidden" value="delete" name="action" >' .
+		'<input type="submit" class="btn btn-danger" value="deletar" /></form>' .
 		'</td></tr>';
 }
 echo '</table>';
-echo '<a href="index.php" class="btn btn-primary" >Adicionar Categoria</a>';
+echo '<a href="index.php" class="btn btn-primary" >Adicionar Categoria</a> </br></br>';
+echo '<a href="categorieEdit.php" class="btn btn-primary" >Editar</a>';

@@ -14,4 +14,5 @@
 	Descrição:&nbsp;<input type='text' name='Descricao' placeholder="Descrição do Produto" /><br /><br>
 	<input type='file' name='Figura' id='Figura' /><br /><br>
 	<input type='submit' class="btn btn-success"/>
+	<a href="categorieList.php" class="btn btn-primary">Ver Lista</a>
 </form>
