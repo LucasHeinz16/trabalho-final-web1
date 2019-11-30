@@ -15,7 +15,7 @@ if (isset($_POST['action']) && $_POST['action'] === 'delete' && (int) $_POST['ID
 	$deleteStmt->execute([(int) $_POST['IDCategoria']]);
 }
 
-// echo '<a href="index.php" >Adicionar Categoria</a>';
+// echo '<a href="categorie.php" >Adicionar Categoria</a>';
 
 $dataStmt = $con->prepare('SELECT * FROM categorias');
 $dataStmt->execute();
@@ -34,5 +34,5 @@ while ($data = $dataStmt->fetch(PDO::FETCH_ASSOC)) {
 		'</td></tr>';
 }
 echo '</table>';
-echo '<a href="index.php" class="btn btn-primary" >Adicionar Categoria</a> </br></br>';
+echo '<a href="categorie.php" class="btn btn-primary" >Adicionar Categoria</a> </br></br>';
 echo '<a href="categorieEdit.php" class="btn btn-primary" >Editar</a>';
