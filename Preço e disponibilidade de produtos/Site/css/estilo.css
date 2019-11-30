@@ -1,0 +1,16 @@
+.input{
+    margin: 5px auto;
+    margin-top: 80px;
+    
+    position: relative;
+    
+}
+h1{
+    font-size: 40px;
+    color: rgb(250, 170, 170)
+   
+  
+}
+body{
+   background-image: url('fundo.jpg');
+}
